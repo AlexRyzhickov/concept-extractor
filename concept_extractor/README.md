@@ -42,6 +42,16 @@ extractor = PersonExtractor("assets/graph/opcorpora-parsed")
 concepts = extractor.extract_batch(["Встреча с Алексеем Черниковым."])
 ```
 
+## Run Example
+
+```sh
+cd ..
+python3 -m pip install -e ./concept_extractor
+python3 examples/example.py
+# or explicitly:
+python3 examples/example.py --dict-dir ./assets/opcorpora-parsed
+```
+
 ## Assets
 
 Large OpenCorpora files are tracked via DVC pointers:
