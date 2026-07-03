@@ -1,0 +1,45 @@
+[build-system]
+requires = ["scikit-build-core>=0.11", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "concept-extractor"
+version = "0.1.0"
+description = "C++ person concept extractor with Python bindings"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Alexander Ryzhikov", email = "makseljoinb@gmail.com" }]
+license = { text = "Apache-2.0" }
+keywords = ["nlp", "names", "concept-extraction", "cxx", "pybind11"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: C++",
+  "Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://github.com/AlexRyzhickov/concept-extractor"
+Repository = "https://github.com/AlexRyzhickov/concept-extractor"
+Issues = "https://github.com/AlexRyzhickov/concept-extractor/issues"
+
+[tool.scikit-build]
+cmake.version = ">=3.22"
+ninja.version = ">=1.11"
+build-dir = "pybuild/{wheel_tag}"
+wheel.packages = ["concept_extractor"]
+cmake.build-type = "Release"
+cmake.args = ["-DBUILD_TESTING=OFF"]
+build.tool-args = ["-j", "32"]
+build.verbose = true
+sdist.include = ["LICENSE"]
+sdist.exclude = ["build", "pybuild", "**/__pycache__", "**/*.so", "**/*.a", ".git", ".dvc"]
+
